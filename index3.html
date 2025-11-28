@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Background</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'main-blue': '#4A76A8',
+                        'pill-blue': '#8FA8C8', /* Lighter blue for the card backing */
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    animation: {
+                        'float-slow': 'float 8s ease-in-out infinite',
+                        'float-medium': 'float 6s ease-in-out infinite',
+                        'float-fast': 'float 4s ease-in-out infinite',
+                        'shine': 'shine 1s ease-in-out',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        shine: {
+                            '100%': { left: '125%' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #4A76A8;
+            font-family: 'Inter', sans-serif;
+        }
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: white;
+            filter: blur(2px);
+            z-index: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="h-screen w-screen flex flex-col justify-between p-4 md:p-8 overflow-hidden relative text-white">
+
+    <!-- Background Animation (Consistent with previous pages) -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="particle w-32 h-32 top-10 left-10 opacity-10 animate-float-slow"></div>
+        <div class="particle w-20 h-20 bottom-20 right-20 opacity-10 animate-float-medium" style="animation-delay: 1s;"></div>
+        <div class="particle w-12 h-12 top-1/2 left-1/4 opacity-5 animate-float-fast" style="animation-delay: 2s;"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto w-full flex-1 flex flex-col justify-center items-center z-10 min-h-0">
+
+        <!-- Header -->
+        <div class="text-center mb-12 relative flex justify-center items-center gap-6">
+             <!-- Left Sparkles -->
+             <div class="relative hidden md:block">
+                <svg viewBox="0 0 24 24" fill="none" class="w-8 h-8 absolute -left-12 -top-2" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" fill="white" fill-opacity="0.9"/>
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" class="w-5 h-5 absolute -left-6 top-6" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" fill="white" fill-opacity="0.9"/>
+                </svg>
+            </div>
+
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif tracking-wide drop-shadow-md">
+                Family
+            </h1>
+
+            <!-- Right Sparkles -->
+            <div class="relative hidden md:block">
+                <svg viewBox="0 0 24 24" fill="none" class="w-8 h-8 absolute -right-12 -top-2" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" fill="white" fill-opacity="0.9"/>
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" class="w-5 h-5 absolute -right-6 top-6" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" fill="white" fill-opacity="0.9"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Family Grid -->
+        <div class="flex flex-col md:flex-row justify-center items-end gap-8 md:gap-10 lg:gap-12 w-full px-4 mb-8">
+
+            <!-- Card 1: Mother -->
+            <div class="flex flex-col items-center gap-4 group w-full md:w-auto">
+                <div class="relative w-56 h-56 md:w-64 md:h-64">
+                    <!-- Offset Background Pill -->
+                    <div class="absolute top-2 right-[-8px] w-full h-full bg-pill-blue rounded-3xl transform rotate-2"></div>
+                    <!-- Image Container -->
+                    <div class="relative w-full h-full rounded-3xl overflow-hidden shadow-lg hover:scale-[1.02] transition-transform duration-300">
+                        <div class="w-full h-full bg-gray-300 flex items-center justify-center">
+                            <img src="mot.png" alt="Mother" class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+                <!-- Line Separator -->
+                <div class="w-full flex items-center gap-2 mt-4">
+                    <div class="w-2 h-2 rounded-full bg-white"></div>
+                    <div class="h-[2px] bg-white flex-1"></div>
+                    <div class="w-2 h-2 rounded-full bg-white"></div>
+                </div>
+                <!-- Label -->
+                <p class="text-lg font-sans tracking-wide">Mother</p>
+            </div>
+
+            <!-- Card 2: Father -->
+            <div class="flex flex-col items-center gap-4 group w-full md:w-auto">
+                <div class="relative w-56 h-56 md:w-64 md:h-64">
+                    <!-- Offset Background Pill -->
+                    <div class="absolute top-2 right-[-8px] w-full h-full bg-pill-blue rounded-3xl transform -rotate-1"></div>
+                    <!-- Image Container -->
+                    <div class="relative w-full h-full rounded-3xl overflow-hidden shadow-lg hover:scale-[1.02] transition-transform duration-300">
+                        <div class="w-full h-full bg-gray-300 flex items-center justify-center">
+                             <img src="fat.png" alt="Father" class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+                <!-- Line Separator -->
+                <div class="w-full flex items-center gap-2 mt-4">
+                    <div class="w-2 h-2 rounded-full bg-white"></div>
+                    <div class="h-[2px] bg-white flex-1"></div>
+                    <div class="w-2 h-2 rounded-full bg-white"></div>
+                </div>
+                <!-- Label -->
+                <p class="text-lg font-sans tracking-wide">Father</p>
+            </div>
+
+            <!-- Card 3: Sibling 1 -->
+            <div class="flex flex-col items-center gap-4 group w-full md:w-auto">
+                <div class="relative w-56 h-56 md:w-64 md:h-64">
+                    <!-- Offset Background Pill -->
+                    <div class="absolute top-2 right-[-8px] w-full h-full bg-pill-blue rounded-3xl transform rotate-1"></div>
+                    <!-- Image Container -->
+                    <div class="relative w-full h-full rounded-3xl overflow-hidden shadow-lg hover:scale-[1.02] transition-transform duration-300">
+                        <div class="w-full h-full bg-gray-300 flex items-center justify-center">
+                             <img src="sib1.JPG" alt="Sibling 1" class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+                <!-- Line Separator -->
+                <div class="w-full flex items-center gap-2 mt-4">
+                    <div class="w-2 h-2 rounded-full bg-white"></div>
+                    <div class="h-[2px] bg-white flex-1"></div>
+                    <div class="w-2 h-2 rounded-full bg-white"></div>
+                </div>
+                <!-- Label -->
+                <p class="text-lg font-sans tracking-wide">Siblings</p>
+            </div>
+
+            <!-- Card 4: Sibling 2 (New Box) -->
+            <div class="flex flex-col items-center gap-4 group w-full md:w-auto">
+                <div class="relative w-56 h-56 md:w-64 md:h-64">
+                    <!-- Offset Background Pill -->
+                    <div class="absolute top-2 right-[-8px] w-full h-full bg-pill-blue rounded-3xl transform -rotate-2"></div>
+                    <!-- Image Container -->
+                    <div class="relative w-full h-full rounded-3xl overflow-hidden shadow-lg hover:scale-[1.02] transition-transform duration-300">
+                        <div class="w-full h-full bg-gray-300 flex items-center justify-center">
+                             <img src="sib2.JPG" alt="Sibling 2" class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+                <!-- Line Separator -->
+                <div class="w-full flex items-center gap-2 mt-4">
+                    <div class="w-2 h-2 rounded-full bg-white"></div>
+                    <div class="h-[2px] bg-white flex-1"></div>
+                    <div class="w-2 h-2 rounded-full bg-white"></div>
+                </div>
+                <!-- Label -->
+                <p class="text-lg font-sans tracking-wide">Siblings</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Bottom Navigation Section -->
+    <div class="relative w-full max-w-[95%] mx-auto h-24 mt-auto shrink-0 z-20">
+        <!-- The White Line Bracket -->
+        <div class="absolute inset-0 pointer-events-none">
+            <!-- Left Vertical Line -->
+            <div class="absolute left-0 bottom-8 h-12 md:h-20 w-[2px] bg-white/60"></div>
+            <!-- Bottom Horizontal Line -->
+            <div class="absolute left-0 bottom-8 h-[2px] w-full bg-white/60"></div>
+            <!-- Right Vertical Line -->
+            <div class="absolute right-0 bottom-8 h-12 md:h-20 w-[2px] bg-white/60"></div>
+        </div>
+
+        <!-- Buttons Container -->
+        <div class="absolute bottom-0 w-full flex justify-between items-end px-4 pb-2">
+            <!-- Added onclick events for navigation -->
+            <button onclick="window.location.href='index2.html'" class="px-8 py-2 rounded-full border-2 border-white text-white hover:bg-white/10 transition-colors uppercase tracking-widest text-sm font-medium bg-pill-blue bg-opacity-50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-white/50 shadow-lg hover:scale-105 duration-200">
+                Previous
+            </button>
+
+        </div>
+    </div>
+
+</body>
+</html>
