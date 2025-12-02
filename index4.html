@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batchmates</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'main-blue': '#4A76A8',
+                        'pill-blue': '#8FA8C8',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    animation: {
+                        'float-slow': 'float 8s ease-in-out infinite',
+                        'float-medium': 'float 6s ease-in-out infinite',
+                        'float-fast': 'float 4s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #4A76A8;
+            font-family: 'Inter', sans-serif;
+        }
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: white;
+            filter: blur(2px);
+            z-index: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="h-screen w-screen flex flex-col overflow-hidden relative text-white">
+
+    <!-- Background Animation -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="particle w-32 h-32 top-10 left-10 opacity-10 animate-float-slow"></div>
+        <div class="particle w-20 h-20 bottom-20 right-20 opacity-10 animate-float-medium" style="animation-delay: 1s;"></div>
+        <div class="particle w-12 h-12 top-1/2 left-1/4 opacity-5 animate-float-fast" style="animation-delay: 2s;"></div>
+    </div>
+
+    <!-- Header Section: Centered at the top (Moved out of columns) -->
+    <div class="w-full flex justify-center pt-8 pb-2 z-20 relative shrink-0">
+        <div class="text-center relative">
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif tracking-widest drop-shadow-md uppercase">
+                Batchmates
+            </h1>
+            <p class="text-lg md:text-3xl mt-2 tracking-widest uppercase font-light">Batch 010</p>
+            
+            <!-- Sparkles near title -->
+            <div class="absolute -left-12 -top-4 hidden md:block">
+                <svg viewBox="0 0 24 24" fill="none" class="w-8 h-8" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" fill="white" fill-opacity="0.9"/>
+                </svg>
+            </div>
+             <!-- Right Sparkle -->
+             <div class="absolute -right-12 top-2 hidden md:block">
+                <svg viewBox="0 0 24 24" fill="none" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" fill="white" fill-opacity="0.9"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Layout Container: 50/50 Split -->
+    <div class="flex flex-col md:flex-row w-full flex-1 z-10 relative min-h-0">
+
+        <!-- Left 50%: Photo Section -->
+        <!-- Changed justify-center to justify-start and added top padding to move content up -->
+        <div class="w-full md:w-1/2 h-full flex flex-col items-center justify-start pt-8 p-4 relative">
+            
+            <!-- Photo Container: Increased max-width to 2xl for bigger size -->
+            <div class="w-full max-w-2xl aspect-[4/3] relative z-10">
+                <div class="w-full h-full rounded-sm overflow-hidden shadow-2xl border-4 border-white/20">
+                    <div class="w-full h-full bg-gray-300 flex items-center justify-center text-gray-600 font-medium">
+                        <img src="batch.jpg" alt="Batchmates Group Photo" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right 50%: Names Section -->
+        <!-- Changed justify-center to justify-start and added top padding -->
+        <div class="w-full md:w-1/2 h-full flex items-center justify-center md:items-start md:justify-center pt-8 p-6 md:p-12 relative">
+            
+            <!-- Bracket Framing -->
+            <div class="absolute inset-0 pointer-events-none hidden md:block p-8 pt-12">
+                 <!-- Left Line -->
+                <div class="absolute left-6 bottom-16 h-3/4 w-[2px] bg-white/40"></div>
+                 <!-- Bottom Line -->
+                <div class="absolute left-6 bottom-16 h-[2px] w-full bg-white/40"></div>
+                 <!-- Decorative Dot -->
+                <div class="absolute left-6 bottom-16 w-2 h-2 bg-white rounded-full -translate-x-1/2 translate-y-1/2"></div>
+            </div>
+
+            <div class="text-center md:text-left z-10 w-full max-w-lg mt-4"> 
+                <!-- Re-added Header "Batchmate Names" and Centered it -->
+                <h2 class="text-3xl md:text-4xl font-serif tracking-widest uppercase mb-6 drop-shadow-sm text-center w-full">
+                    Batchmate Names
+                </h2>
+                
+                <!-- Adjusted text size to prevent overlapping: text-xs on small, text-sm on medium, text-base on large -->
+                <div class="text-sm md:text-base lg:text-xl leading-loose text-white/90 font-sans space-y-4">
+                    <p>
+                        Eduardo Bembo, Asher Oro, Daniel Imson, Clynette Aban, Jaelyndrea Gabayne, Samantha Dasalla, Nahshon Mina, Kenjie Kimmakim, James Celeste, Achilles De Guzman, Zairene Acierto, Bryle Angat, Jaebe Chicay
+                    </p>
+                    <p>
+                        Emmanuel Larga, Jeremy Domilies, Janine Oyod, Hannah Sumayo, Ronan Agoot, Keith Dinamling, MC Caponpon, Doc. Felipe Pati, Jr., Zhaira Taduan, Nelson Cayabyab, Joshua Tabilin, Adrian Varona, Ky Allatiw
+                    </p>
+                    <p>
+                        Samuel Sagandoy, Charles Ticwala, Ericson Aspiras, Knixon Mahinay, Manny Salazar, Boaz Ong, Zeiyah Laroya, Christopher Juevesano, Bernie Domerez, Nathaniel Paway
+                    </p>
+                </div>
+            </div>
+
+            <!-- Bottom Right Sparkle -->
+            <div class="absolute right-8 top-1/4 hidden md:block">
+                <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" fill="white" fill-opacity="0.9"/>
+                </svg>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Navigation Buttons: Lower Right Corner -->
+    <div class="absolute bottom-6 right-8 flex gap-4 z-30">
+        <button onclick="window.location.href='index3.html'" class="px-6 py-2 rounded-full border-2 border-white text-white hover:bg-white/10 transition-colors uppercase tracking-widest text-xs font-medium bg-pill-blue bg-opacity-50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-white/50 shadow-lg hover:scale-105 duration-200">
+            Previous
+        </button>
+        
+    </div>
+
+</body>
+</html>
